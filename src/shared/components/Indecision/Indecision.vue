@@ -35,9 +35,14 @@ export default {
         async getAnswerFromApi() {
             this.isValidQuestion = true;
             this.answer = 'Pensando...';
+            const translateAnswers = {
+                maybe: 'Talvez',
+                no: 'Noo',
+                yes: 'Si!!',
+            }
             let { answer, image } = await getRandomAnswer();
             this.image = image;
-            this.answer = answer;
+            this.answer = translateAnswers[answer.toLowerCase()];
         },
     },
     watch: {
