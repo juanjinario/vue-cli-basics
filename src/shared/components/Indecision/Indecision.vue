@@ -3,7 +3,7 @@
   <img v-if="image" :src="image" alt="Indecision image"/>
   <div class="bg-dark"></div>
   <div class="indecision-container">
-      <input type="text" placeholder="Hazme una pregunta" v-model="question" @keypress="getRandomAnswer" />
+      <input type="text" placeholder="Hazme una pregunta" v-model="question" />
       <small>*Recuerda terminar con un signo de interrogación(?)</small>
 
       <div v-if="isValidQuestion">
