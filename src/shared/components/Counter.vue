@@ -2,8 +2,8 @@
 <template>
     <h2>{{ customTitle }}</h2>
     <p class="counter">{{ counter }} <sup>2</sup> = {{ squareValue }}</p>
-    <button @click="increase">+1</button>
-    <button v-on:click="decrease">-1</button>
+    <button class="myButton" @click="increase">+1</button>
+    <button class="myButton" v-on:click="decrease">-1</button>
 </template>
 
 <script>
@@ -47,6 +47,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
   @import './Counter.scss';
 </style>
