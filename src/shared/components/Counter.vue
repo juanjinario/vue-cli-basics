@@ -1,6 +1,6 @@
 // For create keypress vue + tab
 <template>
-    <h2>Counter</h2>
+    <h2>{{ customTitle }}</h2>
     <p class="counter">{{ counter }} <sup>2</sup> = {{ squareValue }}</p>
     <button @click="increase">+1</button>
     <button v-on:click="decrease">-1</button>
@@ -8,10 +8,18 @@
 
 <script>
 export default {
+    props: {
+        title: String,
+        start: {
+            default: 5,
+            required: false,
+            type: Number,
+        }
+    },
     name: 'Counter',
     data() {
         return {
-            counter: 8
+            counter: this.start
         }
     },
     methods: {
@@ -28,6 +36,9 @@ export default {
     computed: {
         squareValue() {
             return this.counter * this.counter;
+        },
+        customTitle() {
+            return this.title || 'Counter';
         }
     }
 }

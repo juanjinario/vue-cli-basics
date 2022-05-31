@@ -1,7 +1,8 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <p class="extra-info">Cositas</p>
-  <Counter></Counter>
+  <Counter :start="7" title="Entraron"></Counter>
+  <Counter title="Salieron"></Counter>
 </template>
 
 <script>
