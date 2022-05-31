@@ -11,9 +11,12 @@ export default {
     props: {
         title: String,
         start: {
-            default: 5,
+            default: 100,
             required: false,
             type: Number,
+            validator(value) {
+                return value >= 100 ? true : false;
+            } 
         }
     },
     name: 'Counter',
