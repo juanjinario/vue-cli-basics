@@ -1,0 +1,48 @@
+p {
+    color: white;
+    font-size: 20px;
+    margin-top: 0px;
+}
+
+h1, h2 {
+    color: white;
+}
+
+h2 {
+    margin-top: 150px;
+}
+
+img, .bg-dark {
+    height: 100vh;
+    left: 0px;
+    max-height: 100%;
+    max-width: 100%;
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+}
+
+.bg-dark {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.indecision-container {
+    position: relative;
+    z-index: 99;
+}
+
+input {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    width: 250px;
+    & + small {
+        color: white;
+        display: block;
+        margin-top: 0.5rem;
+        opacity: 0.75;
+    }
+}
+input:focus {
+    outline: none;
+}

@@ -1,15 +1,16 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
   <p class="extra-info">Cositas</p>
-  <Counter :start="7" title="Entraron"></Counter>
-  <Counter title="Salieron"></Counter>
+  <!-- <Counter :start="7" title="Entraron" />
+  <Counter title="Salieron" /> -->
+  <Indecision />
 </template>
 
 <script>
-import Counter from './shared/components/Counter.vue'
+import Counter from '@/shared/components/Counter/Counter.vue';
+import Indecision from '@/shared/components/Indecision/Indecision.vue';
 
 export default {
-  components: { Counter },
+  components: { Counter, Indecision },
   name: 'App',
 }
 </script>
