@@ -1,12 +1,12 @@
 <template>
   <h1>Indecision</h1>
-  <img :src="image" alt="Indecision image"/>
+  <img v-if="image" :src="image" alt="Indecision image"/>
   <div class="bg-dark"></div>
   <div class="indecision-container">
       <input type="text" placeholder="Hazme una pregunta" v-model="question" @keypress="getRandomAnswer" />
       <small>*Recuerda terminar con un signo de interrogación(?)</small>
 
-      <div>
+      <div v-if="isValidQuestion">
           <h2>{{ question }}</h2>
           <div>{{ answer }}</div>
       </div>
@@ -22,15 +22,18 @@ export default {
         return {
             question: "",
             answer: "",
-            image: "https://via.placeholder.com/260",
+            image: null, // https://via.placeholder.com/260
+            isValidQuestion: false,
         }
     },
     methods: {
         setDefaultValues() {
-            this.image = "https://via.placeholder.com/260";
+            this.image = null;
             this.answer = "";
+            this.isValidQuestion = false;
         },
-        async getAnswerFromApi() {  
+        async getAnswerFromApi() {
+            this.isValidQuestion = true;
             this.answer = 'Pensando...';
             let { answer, image } = await getRandomAnswer();
             this.image = image;
