@@ -1,6 +1,6 @@
 <template>
   <h1>Indecision</h1>
-  <img src="https://via.placeholder.com/260" alt="Indecision image"/>
+  <img :src="image" alt="Indecision image"/>
   <div class="bg-dark"></div>
   <div class="indecision-container">
       <input type="text" placeholder="Hazme una pregunta" v-model="question" @keypress="getRandomAnswer" />
@@ -8,31 +8,40 @@
 
       <div>
           <h2>{{ question }}</h2>
-          <div>{{ response }}</div>
+          <div>{{ answer }}</div>
       </div>
   </div>
 </template>
 
 <script>
+import { getRandomAnswer } from "@/core/services/indecision.service";
+
 export default {
     name: 'Indecision',
     data() {
         return {
             question: "",
-            response: ""
+            answer: "",
+            image: "https://via.placeholder.com/260",
         }
     },
     methods: {
-        getRandomAnswer() {
-            console.log(this.question);
-            return 1;
+        setDefaultValues() {
+            this.image = "https://via.placeholder.com/260";
+            this.answer = "";
+        },
+        async getAnswerFromApi() {  
+            this.answer = 'Pensando...';
+            let { answer, image } = await getRandomAnswer();
+            this.image = image;
+            this.answer = answer;
         },
     },
     watch: {
         question(value, oldValue) {
-            if (value.includes('?')) {
-                console.log('entro');
-            }
+            this.setDefaultValues();
+            if (!value.includes('?')) return;
+            this.getAnswerFromApi();
         }
     }
 }
