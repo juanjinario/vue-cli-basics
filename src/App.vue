@@ -1,5 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
+  <p class="extra-info">Cositas</p>
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
@@ -22,5 +23,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  .extra-info {
+    color: red;
+  }
 }
 </style>
